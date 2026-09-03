@@ -1,0 +1,221 @@
+.mt-overlay-text {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.94);
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  line-height: 1.2;
+  padding: 4px 6px;
+  box-sizing: border-box;
+  z-index: 2147483647;
+  pointer-events: auto;
+  cursor: move;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  user-select: none;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.mt-overlay-text:hover {
+  outline: 2px solid #ff5722;
+  overflow: visible;
+  z-index: 2147483648;
+}
+
+.mt-expand {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 12px;
+  line-height: 1;
+  color: #555;
+  background: rgba(255,255,255,0.9);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 3px;
+}
+
+.mt-expand:hover {
+  color: #ff5722;
+}
+
+.mt-fuse {
+  position: absolute;
+  top: 2px;
+  right: 18px;
+  font-size: 12px;
+  line-height: 1;
+  color: #555;
+  background: rgba(255,255,255,0.9);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 3px;
+}
+
+.mt-fuse:hover {
+  color: #1e90ff;
+}
+
+.mt-selected {
+  outline: 3px solid #1e90ff !important;
+}
+
+.mt-crop-hint-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 144, 255, 0.95);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  z-index: 2147483647;
+  border: 1px solid #fff;
+}
+
+.mt-bubble {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.88);
+  color: #fff;
+  border: 1px solid #ff5722;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  max-width: 300px;
+  z-index: 2147483647;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+#mt-panel {
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  width: 360px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  background: rgba(30, 30, 46, 0.97);
+  color: #cdd6f4;
+  border: 1px solid #89b4fa;
+  border-radius: 10px;
+  padding: 14px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 2147483647;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+}
+
+.mt-panel-label {
+  font-size: 12px;
+  color: #89b4fa;
+  font-weight: bold;
+}
+
+.mt-panel-input {
+  width: 100%;
+  min-height: 90px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.35);
+  color: #e6e1cf;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.mt-panel-out {
+  background: rgba(0, 0, 0, 0.35);
+  color: #a6e3a1;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  min-height: 40px;
+}
+
+.mt-panel-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.mt-panel-btn {
+  background: #89b4fa;
+  color: #1e1e2e;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mt-panel-btn:hover {
+  background: #b4befe;
+}
+
+.mt-panel-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.mt-del {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 12px;
+  line-height: 1;
+  color: #e33;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 4px;
+  font-weight: bold;
+}
+
+.mt-del:hover {
+  background: #e33;
+  color: #fff;
+}
+
+.mt-crop-box {
+  position: fixed;
+  border: 2px dashed #ff5722;
+  background: rgba(255, 87, 34, 0.12);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+#mt-crop-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  z-index: 2147483647;
+  border: 1px solid #ff5722;
+}

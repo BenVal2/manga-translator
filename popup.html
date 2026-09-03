@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 320px;
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: #1e1e2e;
+      color: #cdd6f4;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 4px;
+      color: #89b4fa;
+    }
+    p.sub {
+      margin: 0 0 16px;
+      font-size: 12px;
+      color: #6c7086;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      margin: 10px 0 4px;
+      color: #a6adc8;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #45475a;
+      background: #313244;
+      color: #cdd6f4;
+      font-size: 13px;
+    }
+    .mode-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .mode-buttons button {
+      flex: 1;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #45475a;
+      background: #313244;
+      color: #cdd6f4;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .mode-buttons button.active {
+      background: #89b4fa;
+      color: #11111b;
+      border-color: #89b4fa;
+      font-weight: 600;
+    }
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+    .toggle-row span {
+      font-size: 13px;
+    }
+    button.primary {
+      width: 100%;
+      margin-top: 16px;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #a6e3a1;
+      color: #11111b;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .token-status {
+      margin-top: 8px;
+      font-size: 12px;
+      padding: 6px;
+      border-radius: 6px;
+      background: #313244;
+    }
+    .token-status.ok { color: #a6e3a1; }
+    .token-status.warn { color: #f9e2af; }
+    .hint {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #6c7086;
+      line-height: 1.5;
+    }
+    .hint a { color: #89b4fa; }
+    .status {
+      margin-top: 10px;
+      font-size: 13px;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Manga Translator</h1>
+  <p class="sub">Overlay automático + modo clic</p>
+
+  <label for="ocrKey">OCR.space API Key</label>
+  <input type="password" id="ocrKey" placeholder="Tu API key de OCR.space">
+
+  <label for="deeplKey">DeepL API Key</label>
+  <input type="password" id="deeplKey" placeholder="Tu API key de DeepL Free">
+
+  <label for="targetLang">Idioma de destino</label>
+  <select id="targetLang">
+    <option value="ES">Español</option>
+    <option value="EN">Inglés</option>
+    <option value="PT">Portugués</option>
+    <option value="FR">Francés</option>
+    <option value="IT">Italiano</option>
+    <option value="DE">Alemán</option>
+  </select>
+
+  <label>Modo de traducción</label>
+  <div class="mode-buttons">
+    <button id="modeOverlay" class="active">Overlay</button>
+    <button id="modeClick">Clic</button>
+  </div>
+
+  <label for="scope">Alcance</label>
+  <select id="scope">
+    <option value="page">Toda la página (todas las imágenes)</option>
+    <option value="visible">Solo la imagen visible</option>
+  </select>
+
+  <div class="toggle-row">
+    <span>Detección automática</span>
+    <input type="checkbox" id="autoDetect" checked>
+  </div>
+
+  <button id="save" class="primary">Guardar configuración</button>
+
+  <button id="runOnPage" class="primary" style="margin-top:8px;background:#89b4fa;">Traducir página actual</button>
+
+  <button id="clearAll" class="primary" style="margin-top:8px;background:#f38ba8;">Borrar todos los cuadros</button>
+
+  <div class="token-status" id="tokenStatus">Sin claves configuradas</div>
+
+  <div class="status" id="status"></div>
+
+  <div class="hint">
+    Obtén tu API key gratuita de
+    <a href="https://ocr.space/apikey" target="_blank">OCR.space</a> y
+    <a href="https://www.deepl.com/pro-api" target="_blank">DeepL Free</a>.
+    La extensión sobrepone la traducción sobre los bocadillos automáticamente.
+    Si no funciona, usa el modo Clic.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
